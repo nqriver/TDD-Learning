@@ -48,7 +48,7 @@ public class GradeBookTest {
     }
 
     @Test
-    void shouldntAllowToAddGradeToNonexistingSubject() {
+    void shouldntAllowToAddGradeToNonexistentSubject() {
         GradeBook newGradeBook = new GradeBook();
         assertThrows(IllegalArgumentException.class, () -> newGradeBook.addGrade(OTHER_SUBJECT, 2));
     }
@@ -62,9 +62,25 @@ public class GradeBookTest {
         gradeBook.addGrade(SUBJECT, 1);
         gradeBook.addGrade(SUBJECT, 5);
         gradeBook.addGrade(SUBJECT, 2);
+        gradeBook.addGrade(SUBJECT, 2);
+
         var globalAverage = gradeBook.getAverageGradeFromAllSubjects();
-        assertEquals(3.25, globalAverage, 0.001);
+        assertEquals(3.1, globalAverage, 0.001);
     }
 
 
+
+    @Test
+    void shouldComputeGlobalAverageGrade_2() {
+        gradeBook.addSubject(OTHER_SUBJECT);
+        gradeBook.addGrade(OTHER_SUBJECT, 2);
+        gradeBook.addGrade(OTHER_SUBJECT, 4);
+        gradeBook.addGrade(OTHER_SUBJECT, 1);
+        gradeBook.addGrade(SUBJECT, 3);
+        gradeBook.addGrade(SUBJECT, 6);
+        gradeBook.addGrade(SUBJECT, 1);
+
+        var globalAverage = gradeBook.getAverageGradeFromAllSubjects();
+        assertEquals(2.833, globalAverage, 0.001);
+    }
 }

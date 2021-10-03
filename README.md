@@ -1,2 +1,2 @@
 # TDD-Learning
-Simple DDT approach exercises. 
+Simple tasks solutions to practise TDD. 

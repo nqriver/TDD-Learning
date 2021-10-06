@@ -40,11 +40,7 @@ class ItemTest {
 
     @Test
     public void itemsWithDifferentNamesShouldBeOrdered() {
-        assert(new Item(10, "pineapple").compareTo(new Item(10, "apple")) > 0);
-        assert(new Item(10, "carbon").compareTo(new Item(10, "gold")) < 0);
+        assert (new Item(10, "pineapple").compareTo(new Item(10, "apple")) > 0);
+        assert (new Item(10, "carbon").compareTo(new Item(10, "gold")) < 0);
     }
-
-
-
-
 }

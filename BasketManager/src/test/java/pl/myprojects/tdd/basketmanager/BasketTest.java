@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class BasketTest {
     private Basket basket;
@@ -70,10 +70,6 @@ class BasketTest {
     public void shouldNotAllowToAddNegativeQuantityOfItems() {
         assertThrows(IllegalArgumentException.class, () -> basket.add(puzzles, -2));
     }
-
-
-
-
 
 
 }

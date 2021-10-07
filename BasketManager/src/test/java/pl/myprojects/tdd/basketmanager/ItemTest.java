@@ -1,6 +1,7 @@
 package pl.myprojects.tdd.basketmanager;
 
 import org.junit.jupiter.api.Test;
+import pl.myprojects.tdd.basketmanager.domain.Item;
 
 import static org.junit.jupiter.api.Assertions.*;
 

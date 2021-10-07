@@ -1,4 +1,4 @@
-package pl.myprojects.tdd.basketmanager;
+package pl.myprojects.tdd.basketmanager.domain;
 
 import java.util.Objects;
 

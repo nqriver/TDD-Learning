@@ -1,4 +1,4 @@
-package pl.myprojects.tdd.basketmanager;
+package pl.myprojects.tdd.basketmanager.domain;
 
 import java.util.Collections;
 import java.util.Map;
@@ -25,12 +25,15 @@ public class Basket {
     }
 
     public void remove(Item item, int quantity) {
+        if (!order.containsKey(item)) {
+            throw new IllegalArgumentException("There is no such item in basket");
+        }
         var elementsLeft = order.get(item) - quantity;
         if (elementsLeft == 0) {
             order.remove(item);
         }
         else if (quantity <= 0 || elementsLeft < 0) {
-            throw new IllegalArgumentException(String.format("Cannot remove %d number of item %s",
+            throw new IllegalArgumentException(String.format("Cannot remove %d quantity of item %s",
                     quantity, item.getName()));
         }
         else {
@@ -39,7 +42,7 @@ public class Basket {
     }
 
     public void remove(Item item) {
-        remove(item, order.get(item));
+        remove(item, 1);
     }
 
     public double getTotalOrderValue() {

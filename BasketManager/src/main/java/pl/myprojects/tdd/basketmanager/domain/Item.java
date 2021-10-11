@@ -8,7 +8,7 @@ public class Item implements Comparable<Item> {
 
     public Item(double price, String name) {
         if (price < 0) {
-            throw new IllegalArgumentException("Prize should be positive");
+            throw new IllegalArgumentException("Price should be positive");
         }
         this.price = price;
         this.name = name;
